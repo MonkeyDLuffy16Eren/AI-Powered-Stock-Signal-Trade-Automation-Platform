@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predict Movement</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+            padding: 40px;
+            text-align: center;
+        }
+        h1 {
+            color: #222;
+        }
+        form {
+            margin-top: 20px;
+        }
+        select, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        .result {
+            margin-top: 30px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        .btn {
+            margin-top: 30px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>📈 Predict Stock Movement (ML)</h1>
+
+    <form action="{{ url_for('predict') }}" method="POST">
+        <label for="symbol">Select Stock Symbol:</label>
+        <select name="symbol" id="symbol" required>
+            <option value="RELIANCE.NS" {% if selected_stock == 'RELIANCE.NS' %}selected{% endif %}>RELIANCE.NS</option>
+            <option value="TCS.NS" {% if selected_stock == 'TCS.NS' %}selected{% endif %}>TCS.NS</option>
+            <option value="INFY.NS" {% if selected_stock == 'INFY.NS' %}selected{% endif %}>INFY.NS</option>
+        </select>
+        <br>
+        <button type="submit">🔍 Predict</button>
+    </form>
+
+    {% if result %}
+    <div class="result">
+        <p><strong>{{ result.stock }}</strong> → {{ result.prediction }}</p>
+    </div>
+    {% endif %}
+
+    <a href="/" class="btn">⬅ Back to Home</a>
+</body>
+</html>

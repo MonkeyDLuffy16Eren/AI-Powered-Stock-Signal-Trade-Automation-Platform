@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algo Trading Prototype</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #fff);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 80px auto;
+            background: #ffffff;
+            padding: 50px 30px;
+            text-align: center;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #003366;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        .btn {
+            display: inline-block;
+            margin: 12px;
+            padding: 14px 28px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 40px 20px;
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .btn {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📈 Algo Trading Prototype</h1>
+        <p>
+            This tool analyzes stock trends using technical indicators, generates Buy/Sell signals, logs them to Google Sheets, 
+            and integrates a simple ML model for next-day market movement prediction.
+        </p>
+        <a href="/signals" class="btn">📊 View Signals</a>
+        <a href="/predict" class="btn">🤖 Predict Movement</a>
+        <a href="/summary" class="btn">📋 View Summary</a>
+
+    </div>
+</body>
+</html>
